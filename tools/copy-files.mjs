@@ -9,7 +9,7 @@ const ssr = resolve(root, "dist/server");
 const cloudflare = resolve(root, "dist/cloudflare");
 const worker = resolve(cloudflare, "_worker.js");
 
-fs.promises.cp(client, cloudflare, { recursive: true });
-fs.promises.cp(ssr, worker, { recursive: true });
+fs.cpSync(client, cloudflare, { recursive: true });
+fs.cpSync(ssr, worker, { recursive: true });
 
 fs.renameSync(join(worker, "server.mjs"), join(worker, "index.js"));
